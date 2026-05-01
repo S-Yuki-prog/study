@@ -7,7 +7,7 @@
 
 **使用したプログラミング言語** :　C言語<br>
 
-他にも様々なプログラムを作成しましたが、代表的なものとして以下のプログラムを提示します。
+他にも様々なプログラムを作成しましたが、代表的なものとして以下のプログラムを提示します。<br>
 
 ---
 ## TCP / IPによるネットワークコミュニケーション
@@ -16,11 +16,11 @@ TCP / IPを利用したネットワークプログラミングを行うために
 
 ### 実行動画（GIF）
 ↓上のコマンドプロンプトがサーバの動作を行う。
-<img width="957" height="1270" alt="Jkcg6ABeiBsCFpDgEHbo1777613313-1777613409" src="https://github.com/user-attachments/assets/1a9ea089-84d4-417f-a682-5671829a533e" />
-↑下のコマンドプロンプトがクライアントの動作を行う。
+<img width="957" height="1270" alt="Jkcg6ABeiBsCFpDgEHbo1777613313-1777613409" src="https://github.com/user-attachments/assets/1a9ea089-84d4-417f-a682-5671829a533e" /><br>
+↑下のコマンドプロンプトがクライアントの動作を行う。<br>
 
 ---
-server5.c
+server5.c<br>
 
       #include <stdio.h>
       #include <stdlib.h>
@@ -93,7 +93,7 @@ server5.c
 
 
 ---
-client5.c
+client5.c<br>
 
       #include <stdio.h>
       #include <stdlib.h>
@@ -163,7 +163,7 @@ client5.c
 
 ---
 
-このプログラムで使用した関数一覧
+このプログラムで使用した関数一覧<br>
 
 | 関数名 | ヘッダファイル | 概要 |
 | :--- | :--- | :--- |
