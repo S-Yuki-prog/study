@@ -16,7 +16,7 @@
 
 
 ### ⚡ C : アルゴリズム
-[**C_System.md**](./C_System.md) / [**Cpp_Exercises.md**](./Cpp_Exercises.md)
+[**C_System.md**](./C_System.md)
 
 
 ### and more...
