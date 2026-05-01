@@ -182,4 +182,5 @@ client5.c<br>
 | **strcmp** | string.h | 2つの文字列を比較する |
 | **strlen** | string.h | 文字列の長さ（バイト数）を算出する |
 
-
+---
+© 2026 Yuki Seki
