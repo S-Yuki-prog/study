@@ -29,3 +29,4 @@
 - **IDE/Editor:** Visual Studio Code / Eclipse
 
 ---
+© 2026 Yuki Seki
