@@ -12,6 +12,8 @@
 ---
 
 ## デジタル修了証
+MATLAB Worksのe-learningコース、「MATLAB入門」「ディープラーニング入門」を修了<br>
+
 ・MATLAB入門<br>
 https://matlabacademy.mathworks.com/progress/share/certificate.html?id=40ced0a4-6fc6-4389-b783-3647deca07ad&<br>
 
