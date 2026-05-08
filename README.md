@@ -17,13 +17,14 @@
 
 
 ### C : TCP/IPの理解
+
+[**C_System.md**](./C_System.md)
 - **学習テーマ:** TCP / IPによるネットワークコミュニケーション
 - **内容:** C言語を用いて行った実験の一例
 
-[**C_System.md**](./C_System.md)
 
-
-### MATLB : 人工知能
+### MATLAB : 人工知能
+[**MATLAB_System.md**](./MATLAB_System.md)
 - **学習テーマ:** ディープラーニングの実装
 - **内容:** MATLAB Worksを通して学習した成果
 
