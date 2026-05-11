@@ -11,7 +11,8 @@
 
 ---
 
-## 単純パーセプトロンの作成と学習プログラム
+# 単純パーセプトロンの作成と学習プログラム
+## 単純パーセプトロンの作成
 >活性化関数（ステップ関数の作成）…計算された合計値が一定の閾値（0）を超えたかどうかを判定
 
       def _activate_step(y):
@@ -35,3 +36,58 @@
 単純パーセプトロンの作成に当たって活性化関数と重み付き和の計算を含める必要がある。
 
 ---
+## 学習プログラム
+>パラメータの差分を計算する関数
+
+      def get_weight_deltas(x1, x2, w1, w2, b, t):
+          # ANDゲートの推論（学習時は現在の重みを使用）
+          y = two_input_perceptron(x1, x2, w1, w2, b)
+          db = t - y
+          dw1 = db * x1
+          dw2 = db * x2
+          return dw1, dw2, db
+
+>差分を更新する関数
+
+      def check_loss(dw1, dw2, db):
+          return (dw1 == 0) and (dw2 == 0) and (db == 0)
+
+      def update_weight(x1, x2, w1, w2, b, t):
+          dw1, dw2, db = get_weight_deltas(x1, x2, w1, w2, b, t)
+          loss = check_loss(dw1, dw2, db)
+          # 重みの更新
+          w1 += dw1
+          w2 += dw2
+          b += db
+          return w1, w2, b, loss
+
+>学習の実行（ANDゲートの例）
+      def train_perceptron():
+          x_in = [[0, 0], [0, 1], [1, 0], [1, 1]]
+          t_in = [0, 0, 0, 1]  # ANDゲートの正解ラベル
+    
+          w1, w2, b = 0, 0, 0  # 初期値
+          epoch = 30
+    
+          for j in range(epoch):
+              classified = True
+              for i in range(len(x_in)):
+                  x1, x2 = x_in[i]
+                  t = t_in[i]
+                  w1, w2, b, loss = update_weight(x1, x2, w1, w2, b, t)
+                  classified *= loss
+        
+              if classified:
+                  print(f"学習完了（{j+1}エポック目）")
+                  print(f"結果: w1={w1}, w2={w2}, b={b}")
+                  break
+
+---
+>実行
+
+      train_perceptron()
+
+>実行結果
+
+      学習完了（6エポック目）
+      結果: w1=2, w2=1, b=-3
