@@ -115,6 +115,67 @@ w1、w2が「重み」、bが「バイアス」といった構造に仕上がり
 
 
 ---
+# MNISTの手書き数字画像を用いた画像データの推定
 
+      import numpy as np
+      import pickle
+
+      # 活性化関数とソフトマックス関数
+      def sigmoid(x):
+          return 1 / (1 + np.exp(-x))
+
+      def softmax(x):
+          x = x - np.max(x, axis=-1, keepdims=True)
+          return np.exp(x) / np.sum(np.exp(x), axis=-1, keepdims=True)
+
+      # 推定（推論）関数
+      def predict(x, weight, bias):
+          W1, W2 = weight['W1'], weight['W2']
+          b1, b2 = bias['b1'], bias['b2']
+
+          # 1層目
+          _y1 = np.dot(x, W1) + b1
+          y1 = sigmoid(_y1)
+
+          # 2層目
+          _y2 = np.dot(y1, W2) + b2
+          y2 = softmax(_y2)
+
+          return y2, _y1, y1, _y2
+
+      # 重みの初期化
+      def init_weight():
+          input_size = 784   # 28x28
+          layer2_size = 50   # 隠れ層
+          output_size = 10   # 0-9の10クラス
+          weight_init = 0.01
+
+          weight = {
+              'W1': weight_init * np.random.randn(input_size, layer2_size),
+              'W2': weight_init * np.random.randn(layer2_size, output_size)
+          }
+          bias = {
+              'b1': np.zeros(layer2_size),
+              'b2': np.zeros(output_size)
+          }
+          return weight, bias
+
+      # 学習のメイン処理（エッセンスのみ抽出）
+      def run_mnist_example(x_train, t_train):
+          # データの正規化
+          x_train = x_train.astype(np.float32) / 255.0
+    
+          weight, bias = init_weight()
+    
+          # 学習後の推定結果の確認（レポート内での最終結果確認）
+          predicts, _, _, _ = predict(x_train[:5], weight, bias)
+          final_predict_labels = np.argmax(predicts, axis=1)
+    
+          print("最終的な推定結果 (x_train[0]〜[4]):")
+          for i in range(5):
+              print(f"画像 {i}: 正解ラベル = {t_train[i]}, 推定結果 = {final_predict_labels[i]}")
+      # 実行
+      (x_train, t_train), (x_test, t_test) = load_mnist()
+      run_mnist_example(x_train, t_train)
 
 
